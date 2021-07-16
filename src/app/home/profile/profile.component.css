@@ -1,0 +1,104 @@
+
+.bg-gray, .bg-gray a{
+    background-color: #e2e2e2;
+    color: #2f2f30;
+}
+.bg-red {
+    background-color: #f44336;
+    color: #fff;
+}
+.color-red {
+    color: #f44336;
+}
+.profile-pic {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+.tabs ul {
+    padding-right: 0;
+}
+.tabs li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+}
+.tabs li:hover {
+    background-color: #f44336;
+    color: #fff;
+}
+.tabs li:visited {
+    background-color: #000;
+}
+
+.profile-pic-change {
+    position: absolute;
+    top: 20px;
+    opacity: 0;
+    z-index: 9999;
+}
+
+.change-pic {
+    display: none
+}
+.changeBtn {
+    display: none
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .order2 {
+        order: 2;
+    }
+    .order1 {
+        order: 1;
+        margin-bottom: 30px;
+    }
+    .profile {
+        margin-top: 0px !important;
+        padding-top: 20px !important;
+    }
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+    }
+    .profilepic-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .dropdown-menu.show {
+        right: -62px;
+        left: auto !important;
+    }
+    .mobile-none {
+        display: none;
+    }
+}
+
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #eee;
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+
+.popup button {
+    color: #fff;
+    margin: 12px auto 0;
+    display: block;
+    background: #f44336;
+    padding: 3px 15px;
+}
+.popup button:focus {
+    outline: 0;
+}

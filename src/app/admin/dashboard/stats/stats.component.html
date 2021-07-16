@@ -1,0 +1,105 @@
+<div class="col-11 m-auto text-right mt-5 mb-5 pt-5 pb-5">
+    <div class="row nav">
+        
+        <div class="col-12 col-lg-3 show">
+            <div class="all">
+              <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/orders-show.png" width="50px">
+              <h3 class="m-0"># parkings : {{stats.orders}}</h3>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 show">
+            <div class="all">
+              <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/product-number2.png" width="50px">
+              <h3 class="m-0">Reviews : {{stats.reviews}}</h3>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 show">
+            <div class="all">
+              <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/complaints.png" width="50px">
+              <h3 class="m-0">Complaints : {{stats.complaints}}</h3>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 show">
+            <div class="all">
+              <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/users-show.png" width="50px">
+              <h3 class="m-0">Users : {{stats.users}}</h3>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 show">
+            <div class="all">
+              <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/admins-show.png" width="50px">
+              <h3 class="m-0">Admins : {{stats.admins}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 mb-5">
+        <div class="col-12 col-lg-6">
+            <div class="users-stats border rounded pt-4 pb-4 pr-3 pl-3">
+                <div class="row align-items-center">
+                    <i class="fas fa-users ml-2 mr-3 blue"></i> 
+                    <h4 class="mb-0">Number of monthly Users</h4>
+                </div>
+                <hr class="m-3">
+                <div *ngFor="let user_filter of stats.users_filter" class="mb-1">    
+                    <span>{{user_filter.year + "-" + user_filter.month}}</span>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{user_filter.data/stats.users*100}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">{{user_filter.data}}</div>
+                    </div>
+                </div>
+                <!--<canvas id="users"></canvas>-->
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="users-stats border rounded pt-4 pb-4 pr-3 pl-3">
+                <div class="row align-items-center">
+                    <i class="fas fa-angry ml-2 mr-3 blue"></i> 
+                    <h4 class="mb-0">Number of monthly complaints</h4>
+                </div>
+                <hr class="m-3">
+                <div *ngFor="let complaint_filter of stats.complaints_filter" class="mb-1">    
+                    <span>{{complaint_filter.year + "-" + complaint_filter.month}}</span>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{complaint_filter.data/stats.complaints*100}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">{{complaint_filter.data}}</div>
+                    </div>
+                </div>
+                <!--<canvas id="users"></canvas>-->
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="row mt-5 mb-5">
+        <div class="col-12 col-lg-6">
+            <div class="users-stats border rounded pt-4 pb-4 pr-3 pl-3">
+                <div class="row align-items-center">
+                    <i class="fas fa-parking ml-2 mr-3 blue"></i> 
+                    <h4 class="mb-0">Number of monthly Parkings</h4>
+                </div>
+                <hr class="m-3">
+                <div *ngFor="let order_filter of stats.orders_filter" class="mb-1">    
+                    <span>{{order_filter.year + "-" + order_filter.month}}</span>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{order_filter.data/stats.orders*100}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">{{order_filter.data}}</div>
+                    </div>
+                </div>
+                <!--<canvas id="users"></canvas>-->
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="users-stats border rounded pt-4 pb-4 pr-3 pl-3">
+                <div class="row align-items-center">
+                    <i class="fas fa-comments ml-2 mr-3 blue"></i> 
+                    <h4 class="mb-0">Number of monthly Reviews</h4>
+                </div>
+                <hr class="m-3">
+                <div *ngFor="let review_filter of stats.reviews_filter" class="mb-1">    
+                    <span>{{review_filter.year + "-" + review_filter.month}}</span>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{review_filter.data/stats.reviews*100}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">{{review_filter.data}}</div>
+                    </div>
+                </div>
+                <!--<canvas id="users"></canvas>-->
+            </div>
+        </div>
+    </div>
+</div>

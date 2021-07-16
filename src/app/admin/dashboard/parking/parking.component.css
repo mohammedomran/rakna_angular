@@ -1,0 +1,12 @@
+.parking-free, .parking-full {
+    background-color: #2ecc71 ;
+    padding: 70px 10px;
+}
+.parking-full {
+    background-color: #e74c3c ;
+}
+h4 {
+    background-color: #303030;
+    color: #fff;
+    padding: 10px;
+}

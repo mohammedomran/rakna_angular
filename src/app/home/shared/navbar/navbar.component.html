@@ -1,0 +1,159 @@
+<div class="bg-gray">
+
+  <div class="container mobile-nav m-auto p-3 d-xs-block d-sm-none">
+    <div class="row align-items-center justify-content-between">
+        <div class="dropdown">
+          <div class="btn bg-red border-0" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-list"></i>
+          </div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul class="pl-3 pr-3">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/home">الرئيسية</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/products">تصفح المنتجات</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/about">أعرف عنا</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/contact">تواصل معنا</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/new-offers">أجدد العروض</a>
+              </li>
+              <li class="fa-items text-center mt-2">
+                <i (click)="logout()" *ngIf="loginStatus" class="ml-1 fas fa-sign-out-alt"></i>
+                <i class="fas fa-user" *ngIf="loginStatus" routerLink="/profile/myaccount"></i>
+                <i class="ml-1 fas fa-user" routerLink="/login" *ngIf="!loginStatus"></i>
+
+                <i class="fas fa-history" routerLink="/order-tracking"></i>
+                <i class="fas fa-heart" routerLink="/wish-list"></i>
+                <i class="fas fa-shopping-cart" routerLink="/shopping-cart"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <a class="nav-link p-0"><img class="logo-mobile" height="80px" src="https://aldorahouse.s3-eu-west-1.amazonaws.com/logo1.png"></a>
+            
+    </div>
+  </div>
+  
+    <ul class="nav top-nav justify-content-center color-red">
+      <div (click)="logout()" *ngIf="loginStatus" class="row align-items-center" style="cursor: pointer;">
+        <p class="p-0 m-0">تسجيل خروج</p>
+        <i class="ml-1 fas fa-sign-out-alt"></i>
+      </div>
+      <li class="nav-item row align-items-center">
+        <a *ngIf="!loginStatus" class="nav-link pr-2 text-dark" routerLink="/login" routerLinkActive="active">تسجيل دخول / اشتراك جديد</a>
+        <a *ngIf="loginStatus" class="nav-link pr-2 text-dark" routerLink="/profile/myaccount" routerLinkActive="active">حسابي</a>
+        <i class="fas fa-user"></i>
+      </li>
+      <li class="nav-item row align-items-center">
+        <a class="nav-link pr-2 text-dark" routerLink="/order-tracking">تتبع طلبي</a>
+        <i class="fas fa-history"></i>
+      </li>
+      <li class="nav-item row align-items-center">
+        <a class="nav-link pr-2 text-dark" routerLink="/wish-list" routerLinkActive="active">قائمة الأمنيات</a>
+        <i class="fas fa-heart"></i>
+      </li>
+      <li class="nav-item row align-items-center">
+        <a class="nav-link pr-2 text-dark" routerLink="/shopping-cart" routerLinkActive="active">عربة التسوق</a>
+        <i class="fas fa-shopping-cart"></i>
+      </li>
+    </ul>
+
+    <ul class="nav middle-nav pr-5 pl-5 row justify-content-between align-items-center">
+        <li class="nav-item col">
+          <div class="row">
+            <i class="fas fa-search bg-red p12" (click)="searchForProduct()"></i>
+            <input id="productSearch" class="p-2 w-75 text-right" placeholder="قم بالبحث عن منتجك المفضل">
+          </div>
+  
+          <div class="search-results col-10 mt-1">
+            <div class="row bg-red align-items-center justify-content-around border-bottom" style="height: 50px;" *ngFor="let product of search_products">
+              <a style="background: transparent;;" href="/products/{{product.id}}"><img style="cursor: pointer;" src="{{product.main_image}}" height="50px"></a>
+              <h6 class="m-0">{{product.name}}</h6>
+            </div>
+          </div>
+          
+        </li>
+        <li class="nav-item col text-right">
+          <a class="nav-link"><img width="150px" src="https://aldorahouse.s3-eu-west-1.amazonaws.com/logo1.png"></a>
+        </li>
+    </ul>
+    
+  </div>
+
+  <ul class="nav navbar justify-content-center bg-red p-2">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/new-offers">أجدد العروض</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/contact">تواصل معنا</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/about">أعرف عنا</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/products">تصفح المنتجات</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/home">الرئيسية</a>
+    </li>
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+<!------------------------------------------------------------------>
+<!------------------------------------------------------------------>
+<!------------------------------------------------------------------>
+<!------------------------------------------------------------------>
+
+
+
+<div class="popup" *ngIf="showMsgAlert">
+  يرجي تسجيل الدخول لحسابك لتتمكن من التواصل معنا
+  <button (click)="changeshowMsgAlert()" class="border-0">حسنا</button>
+</div>
+
+
+
+<div class="d-none messages-box bg-white">
+  <div class="header bg-blue row justify-content-between p-3">
+      <i class="fas fa-times" (click)="closeChat()"></i>
+      <span id="endChatBtn" class="d-none text-dark" style="font-weight: bold; cursor: pointer;" (click)="endChat(userId)">إنهاء المحادثة</span>
+  </div>
+  <button id="startChatBtn" (click)="startChat()" class="btn-primary mr-auto ml-auto border-0  p-2 mt-5 rounded">بدأ محادثة جديدة</button>
+  <div class="d-none content pb-4" id="content" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+      <div class="pr-3 pl-3 pt-1 pb-1" *ngFor="let message of messages">
+          <div class="row m-0 user">
+              <p class="m-0 user-msg d-inline-block" *ngIf="userId==message.sender">{{message.msg}}</p>
+          </div>
+          <div class="admin m-0 row justify-content-end">
+              <p class="m-0 admin-msg d-inline-block" *ngIf="userId!=message.sender">{{message.msg}}</p>
+          </div>
+      </div>
+  </div>
+  
+  <div class="d-none footer p-3 row align-items-center w-100">
+      <div class="col-10 p-0">
+          <input id="msgContent" type="text" class="border w-100">
+      </div>
+      <div class="col-2">
+          <i class="fas fa-paper-plane color-blue text-center" style="cursor: pointer;" (click)="storeMsg()"></i>
+      </div>
+  </div>
+</div>
+<i (click)="openChat()" class="fab fa-facebook-messenger bg-blue"></i>
+

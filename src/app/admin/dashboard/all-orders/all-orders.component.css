@@ -1,0 +1,102 @@
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.orange {
+    color: #83e313;
+}
+.gray {
+    color: #6f6464;;
+}
+.bg-blue {
+    background-color: #303952;
+    color: #fff;
+}
+h3 {
+    font-size: 23px;
+}
+h5 {
+    font-size: 17px;
+}
+h5, p {
+    margin-bottom: 0;
+}
+li {
+    list-style-type: none;
+}
+.list-group-item ul {
+    padding-right: 0;
+}
+
+.nav {
+    margin-top: 50px;
+}
+.all, .add, .search {
+    background-color: #eee;
+    padding: 20px 20px 10px 10px;
+    color: #fff;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.all {
+    background-color: #1abc9c;
+}
+.search {
+    background-color: #e74c3c;
+}
+.add {
+    background-color: #34495e;
+}
+.nav img {
+    margin-bottom: 20px;
+}
+
+.products-list {
+    margin-top: 50px;
+}
+.products-list li {
+    direction: rtl;
+}
+i.fa-star {
+    font-size: 14px;
+}
+button {
+    height: 50px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: cover;
+}
+
+
+li {
+    font-size: 15px;
+}
+.heading li {
+    font-size: 16px;
+}
+
+
+.canceled {
+    background-color: #2d3436;
+    color: #fff;
+}
+.under-delivery {
+    background-color: #00cec9;
+}
+.delivered {
+    background-color: #0984e3;
+}
+.not-revised {
+    background-color: #ff9f43;
+}

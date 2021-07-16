@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+    <div class="container pt-5 pb-5 mb-5 mt-5" *ngIf="loginStatus">
+        <div class="text-center" *ngIf="paymentStatus==1">
+            <i class="fas fa-check-circle mb-2" style="font-size: 45px; color: #83ad33;"></i>
+            <h3>تمت عملية الدفع بنجاح</h3>
+        </div>
+        <div class="text-center" *ngIf="paymentStatus==-1">
+            <i class="fas fa-times-circle mb-2" style="font-size: 45px; color: #83ad33;"></i>
+            <h3>عفوا, لقد حدث خطأ أثناء إتمام عملية الدفع</h3>
+        </div>
+    </div>
+    <div class="container pt-5 pb-5 mb-5 mt-5" *ngIf="!loginStatus">
+        <div class="text-center">
+            <h3>يرجي تسجيل الدخول لعرض حالة طلبك</h3>
+        </div>
+    </div>
+
+<app-footer></app-footer>

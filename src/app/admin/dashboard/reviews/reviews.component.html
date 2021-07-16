@@ -1,0 +1,42 @@
+<div class="col-11 m-auto">
+    <div class="nav row pt-5 text-right justify-content-center" style="direction: rtl;">
+      <div class="col-12 col-lg-4">
+        <div class="all" routerLink="all">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/users-show.png" width="50px">
+          <h3 class="m-0">Reviews : {{reviews_stats.all_reviews}}</h3>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="add" routerLink="not-revised">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/complaints.png" width="50px">
+        <h3 class="m-0">Not revised : {{reviews_stats.not_revised}}</h3>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="all not-revised" routerLink="accepted">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/check.png" width="50px">
+        <h3 class="m-0">Accepted : {{reviews_stats.accepted}}</h3>
+        </div>
+      </div>
+    </div>
+    
+    <div class="nav mt-4 row text-right" style="direction: rtl;">   
+      <div class="col-12 col-lg-4">
+        <div class="all delivered" routerLink="rejected">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/blocked.png" width="50px">
+        <h3 class="m-0">Rejected : {{reviews_stats.cancelled}}</h3>
+        </div>
+      </div>
+      <!--
+      <div class="col-12 col-lg-4">
+        <div class="all search" routerLink="search">
+          <img src="../../../../assets/images/icons/users-search.png" width="50px">
+        <h3 class="m-0">البحث عن تقييم</h3>
+        </div>
+      </div>-->
+    </div>
+    
+  </div>
+  
+  
+  <router-outlet></router-outlet>

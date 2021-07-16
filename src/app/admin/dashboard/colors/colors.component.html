@@ -1,0 +1,57 @@
+<div class="col-11 m-auto">
+    <div class="nav row text-right justify-content-center" style="direction: rtl;">
+      <div class="col-12 col-lg-4 ">
+        <div class="all">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/categories-show.png" width="50px">
+          <h3 class="m-0">الألوان : {{colors_count}}</h3>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="add" routerLink="add">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/categories-add.png" width="50px">
+          <h3 class="m-0">إضافة لون جديد</h3>
+        </div>
+      </div>
+    </div>
+    
+    <div class="products-list row text-right">
+      <div class="col-12">
+        <ul class="list-group list-group-flush">
+          
+          <li class="list-group-item">
+            <ul class="row justify-content-between">
+              <li class="col-1">ID</li>
+              <li class="col-2">اسم اللون</li>
+              <li class="col-2">اللون</li>
+              <li class="col-1">عدد المنتجات</li>
+              <li class="col-1">مرات الشراء</li>
+              <li class="col-3">تاريخ الإنشاء</li>
+              <li class="col-2">
+              </li>
+            </ul>
+          </li>
+
+          <li class="list-group-item">
+            <ul class="row justify-content-between align-items-center pt-2 pb-2" *ngFor="let color of colors">
+              <li class="col-1">{{color.id}}</li>
+              <li class="col-2">{{color.color}}</li>
+              <li class="col-2"><span class="color rounded" style="background-color: {{color.code}};"></span></li>
+              <li class="col-1">{{0}}</li>
+              <li class="col-1">{{0}}</li>
+              <li class="col-3">{{color.created_at}}</li>
+              
+              <li class="col-2">
+                <button class="btn-success border-0 p-1 ml-1 rounded" routerLink="edit/{{color.id}}">تعديل</button>
+                <button class="btn-danger border-0 p-1 ml-1 rounded" (click)="delete(color.id)">حذف</button>
+              </li>
+            </ul>
+          </li>
+  
+        </ul>
+  
+      </div>
+    </div>
+  </div>
+  
+  
+  <router-outlet></router-outlet>

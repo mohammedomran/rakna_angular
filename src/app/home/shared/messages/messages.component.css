@@ -1,0 +1,134 @@
+.bg-blue {
+    background-color: #2196f3;
+    color: #fff;
+}
+.color-blue {
+    color: #2196f3;
+}
+.bg-white {
+    background-color: #fff;
+}
+
+
+.text-red {
+    color: #f44336;
+}
+
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+
+
+
+i.fa-facebook-messenger {
+    font-size: 23px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    text-align: center;
+    z-index: 9999;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+i.fa-facebook-messenger:hover {
+    background-color: #0e6fbd;
+}
+
+i.fa-times {
+    cursor: pointer;
+}
+.messages-box {
+    width: 25%;
+    z-index: 9999;
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+    border-radius: 8px;
+    height: 350px;
+    border: 1px solid #2196f3;
+}
+.content {
+    overflow-y: auto;
+    height: 247px;
+}
+
+.admin-msg, .user-msg {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    word-break: break-all;
+}
+
+.admin-msg {
+    background-color: #f44336;
+    border-bottom-right-radius: 5px;
+}
+.user-msg {
+    background-color: #0e6fbd;
+    border-bottom-left-radius: 5px;
+}
+.header {
+    background-color: #2196f3;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+.footer input {
+    padding: 4px 8px;
+    font-size: 15px;
+}
+
+
+#startChatBtn {
+    display: block
+}
+
+
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #eee;
+    padding: 50px 20px;
+    border-radius: 10px;
+    z-index: 9999;
+}
+
+.popup button {
+    color: #fff;
+    margin: 12px auto 0;
+    display: block;
+    background: #f44336;
+    padding: 3px 15px;
+}
+.popup button:focus {
+    outline: 0;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+    .fa-facebook-messenger {
+        right: 20px !important;
+        bottom: 20px !important;
+    }
+}

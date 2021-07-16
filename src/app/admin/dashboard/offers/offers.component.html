@@ -1,0 +1,60 @@
+<div class="col-11 m-auto">
+    <div class="nav row text-right justify-content-center" style="direction: rtl;">
+      <div class="col-12 col-lg-4 ">
+        <div class="all" routerLink="all">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/sale.png" width="50px">
+          <h3 class="m-0">العروض : {{offers_count}}</h3>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="add" routerLink="add">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/product-add.png" width="50px">
+        <h3 class="m-0">إضافة عرض جديد</h3>
+        </div>
+      </div>
+      <!--<div class="col-12 col-lg-4">
+        <div class="search" routerLink="search">
+          <img src="../../../../assets/images/icons/users-search.png" width="50px">
+        <h3 class="m-0">البحث عن عرض</h3>
+        </div>
+      </div>-->
+    </div>
+    
+    <div class="products-list row text-right">
+      <div class="col-12">
+        <ul class="list-group list-group-flush">
+          
+          <li class="list-group-item">
+            <ul class="row justify-content-between">
+                <li class="col-1">ID</li>
+                <li class="col-2">الصورة</li>
+                <li class="col-2">الاسم</li>
+                <li class="col-2">السعر الأساسي</li>
+                <li class="col-1">الخصم</li>
+                <li class="col-2">السعر الجديد</li>
+                <li class="col-2">تاريخ إضافة العرض</li>
+            </ul>
+          </li>
+          <li class="list-group-item" *ngFor="let product of latest_products">
+            <ul class="row justify-content-between align-items-center">
+                <li class="col-1">{{product.id}}</li>
+                <li class="col-2"><img src="{{product.main_image}}" height="50px"></li>
+                <li class="col-2">{{product.name}}</li>
+                <li class="col-2">{{product.price}}</li>
+                <li class="col-1" *ngIf="product.price_discount != 0">{{product.price_discount}} ج</li>
+                <li class="col-1" *ngIf="product.percentage_discount != 0">{{product.percentage_discount}} %</li>
+                <li class="col-2" *ngIf="product.price_discount != 0">{{product.price - product.price_discount}} ج</li>
+                <li class="col-2" *ngIf="product.percentage_discount != 0">{{product.price - product.price*product.percentage_discount/100}} ج</li>
+                <li class="col-2">{{product.created_at}}</li>
+            </ul>
+          </li>
+  
+        </ul>
+  
+        <button class="w-100 mt-2 bg-blue row align-items-center border-0 rounded  justify-content-center" routerLink="all"><h5>عرض جميع العروض</h5> <i class="ml-2 fas fa-angle-down"></i></button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <router-outlet></router-outlet>

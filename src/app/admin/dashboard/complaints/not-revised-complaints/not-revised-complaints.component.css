@@ -1,0 +1,40 @@
+li {
+    list-style-type: none;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+
+h5, .h5 {
+    font-size: 17px;
+}
+.h6 {
+    font-size: 15px;
+}
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: cover;
+}
+
+.blue {
+    color: #303952;
+}
+
+i {
+    width: 30px;
+    text-align: center;
+}
+
+.back {
+    cursor: pointer;
+}

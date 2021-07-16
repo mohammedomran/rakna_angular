@@ -1,0 +1,70 @@
+.bg-red, .bg-red a {
+    background-color:  #ff3838;
+    color: #fff;
+}
+
+
+.back {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.orange {
+    color: #83e313;
+}
+.gray {
+    color: #6f6464;;
+}
+.bg-blue {
+    background-color: #303952;
+    color: #fff;
+}
+
+h5 {
+    font-size: 17px;
+}
+h5, p {
+    margin-bottom: 0;
+}
+li {
+    list-style-type: none;
+}
+.list-group-item ul {
+    padding-right: 0;
+}
+
+.nav {
+    margin-top: 50px;
+}
+.nav img {
+    margin-bottom: 20px;
+}
+
+.products-list {
+    margin-top: 50px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: cover;
+}
+
+
+li {
+    font-size: 15px;
+}
+.heading li {
+    font-size: 16px;
+}

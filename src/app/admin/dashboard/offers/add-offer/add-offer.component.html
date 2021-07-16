@@ -1,0 +1,83 @@
+<div class="col-12 pt-5 pb-5">
+    <div class="col-12">
+        <div class="mb-3 back justify-content-end w-100 row align-items-center text-primary" routerLink="../">
+          <p class="m-0">رجوع</p>
+          <i class="fas fa-angle-right ml-2"></i>
+        </div>
+    </div>
+    
+    <div class="add col-8 ml-auto mr-auto mt-5" style="direction: rtl;">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-muted">قم باختيار المنتج أولا لإضافة عرض جديد إليه</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>اسم المنتج أو ال ID الخاص به</p>
+                <div class="form-group d-flex">
+                    <input type="text" class="form-control" id="productData">
+                    <button class="border-0 btn-primary pr-3 pl-3 mr-2 rounded" (click)="searchProducts()">بحث</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p>الخصم بالجنية</p>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="price_discount">
+                </div>
+            </div>
+            <div class="col-6">
+                <p>الخصم بالنسبة</p>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="percentage_discount">
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <button class="form-group border-0 bg-red form-control" (click)="storeOrder()">إضافة العرض الآن</button>
+        </div>
+    </div>
+
+    <div class="products-list col-12 ml-auto mr-auto mt-5 row text-right" *ngIf="isSearchSuccess">
+
+        <hr>
+        {{users_serach}}
+        <div class="col-12">
+          <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <ul class="row justify-content-between">
+                    <li class="col-1">ID</li>
+                    <li class="col-1">الصورة</li>
+                    <li class="col-2">اسم المنتج</li>
+                    <li class="col-2">التصنيف</li>
+                    <li class="col-2">السعر</li>
+                    <li class="col-2">مرات البيع</li>
+                    <li class="col-2"></li>
+                </ul>
+            </li>
+   
+            <li class="list-group-item product" *ngFor="let product of products">
+                <ul class="row justify-content-between align-items-center">
+                <li class="col-1">{{product.id}}</li>
+                <li class="col-1 main_image" style="background-image: url({{product.main_image}});"></li>
+                <li class="col-2">{{product.name}}</li>
+                <li class="col-2"><span *ngIf="product.category">{{product.category.name}}</span></li>
+                <li class="col-2">{{product.price}}</li>
+                <li class="col-2">{{product.orders.length}}</li>
+                <li class="col-2"><button id="{{product.id}}" (click)="selectProduct($event)" class="border-0 btn-primary pt-1 pb-1 pr-2 pl-2">اختيار المنتج</button></li>
+                </ul>
+            </li>
+    
+          </ul>
+    
+        </div>
+    </div>
+    <div class="products-list row text-right col-8 ml-auto mr-auto mt-5" *ngIf="!isSearchSuccess">
+        <h4 class="col-12 p-0">لا توجد نتائج</h4>
+    </div>
+    
+</div>

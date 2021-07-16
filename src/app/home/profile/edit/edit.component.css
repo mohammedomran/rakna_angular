@@ -1,0 +1,55 @@
+
+.bg-gray, .bg-gray a{
+    background-color: #e2e2e2;
+    color: #2f2f30;
+}
+
+ul.account {
+    padding-right: 0;
+    margin-bottom: 0;
+}
+.account li {
+    list-style-type: none;
+    transition: 0.3s all ease-in-out;
+    margin-bottom: 10px;
+}
+.bg-red {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.edit-section .row {
+    margin-bottom: 10px;
+}
+.edit-section .update-data {
+    height: 50px;
+}
+
+#newAddressBox {
+    display: none;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #eee;
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+
+.popup button {
+    color: #fff;
+    margin: 12px auto 0;
+    display: block;
+    background: #f44336;
+    padding: 3px 15px;
+}
+.popup button:focus {
+    outline: 0;
+}
+.container {
+    margin: auto;
+}
+

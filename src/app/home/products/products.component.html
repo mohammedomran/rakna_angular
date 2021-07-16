@@ -1,0 +1,133 @@
+
+<app-navbar></app-navbar>
+
+<div class="products-area pt-5 pb-5 mt-5 mb-5">
+    <div class="container-fluid m-auto">
+        <div class="heading text-right pb-10" style="direction: rtl;">
+            <div class="row justify-content-center m-auto align-items-center">
+                <div class="col-5 d-none d-sm-block">  
+                    <div class="row align-items-center">
+                        <i class="fas fa-check-square color-red"></i>
+                        <h5 class="m-0 mr-3">قم بمليء عربة التسوق الخاصة بك</h5>
+                    </div>  
+                    <div class="row align-items-center mt-2 mb-2">
+                        <i class="fas fa-clipboard-list color-red"></i>
+                        <h5 class="m-0 mr-3">قم بتعبئة بيانات العنوان والدفع</h5>
+                    </div>  
+                    <div class="row align-items-center">
+                        <i class="fas fa-shipping-fast color-red"></i>
+                        <h5 class="m-0 mr-3">سيتم شحن المنتجات إليك بأسرع ما يمكن</h5>
+                    </div>  
+                </div>
+                <div class="col-5 col-sm-3">  
+                    <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/gifs/products.gif" width="100%">
+                </div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="row text-right justify-content-center" style="direction: rtl;">
+                <!----------------------------------------------->
+                <!----------------------------------------------->
+                <!----------------------------------------------->
+                <!----------------------------------------------->
+                <div class="d-flex d-sm-none text-center row align-items-center mb-2 justify-content-center" (click)="changeFilterStatus()">
+                    <i class="fas fa-filter bg-red p-2 rounded mr-1 ml-3"></i><p class="mb-0">فلترة المنتجات</p>
+                </div>
+                <!------------------------------------------------->
+                <!------------------------------------------------->
+                <!------------------------------------------------->
+                <!------------------------------------------------->
+                
+                <div class="all-products col-12 col-lg-10" *ngIf="productsStatus">
+                    <div class="products text-right row align-items-stretch justify-content-end" style="direction: rtl;">
+
+                        <div *ngFor="let product of products" class="m-auto col-md-6 col-lg-4 col-xl-3 p-0 bg-white pl-2 pr-2">
+                            <div class="product mb-3">
+                                <div class="discount bg-yellow d-inline-block text-right" *ngIf="product.percentage_discount != 0"><i class="fas fa-tags ml-2"></i><span>تخفيض {{product.percentage_discount}}%</span></div>
+                                <div class="discount bg-yellow d-inline-block text-right" *ngIf="product.price_discount != 0"><i class="fas fa-tags ml-2"></i><span>تخفيض {{product.price_discount}}ج</span></div>
+                                <div class="discount d-inline-block text-right" *ngIf="product.percentage_discount == 0 && product.price_discount == 0"><span></span></div>
+
+                                <div class="product-image text-center">
+                                    <div class="main_image" style="background-image: url({{product.main_image}});" width="60%" routerLink="{{product.id}}"></div>
+                                </div>
+                                <div class="details row align-items-center">
+                                    <h6 class="m-0">{{product.name}}</h6> <p class="m-0 pl-1 pr-1"> - </p>
+                                    <p class="m-0">{{product.price}} ج</p>
+                                </div>
+                                <div class="add text-right">
+                                    <i class="fas fa-shopping-cart ml-2" (click)="addToCart(product.id)"></i>
+                                    <i class="fas fa-heart" (click)="addToWishList($event, product.id)"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    <nav class="w-100 row justify-content-center mt-3" aria-label="Page navigation example m-auto text-left" style="direction: ltr;">
+                        <ul class="pagination">
+                            <li class="page-item">
+                            <a class="page-link bg-red" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                            </li>
+                            <li class="page-item"><a class="page-link bg-red">1</a></li>
+                            <li class="page-item"><a class="page-link bg-red">2</a></li>
+                            <li class="page-item"><a class="page-link bg-red">3</a></li>
+                            <li class="page-item">
+                            <a class="page-link bg-red" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    </div>
+
+
+                </div>
+                <div class="filter-products col-12 col-lg-2 p-0" *ngIf="!filterStatus">    
+                    <div class="filter pt-4 pb-3 pr-3 pl-3">
+                        <h4>فلترة المنتجات</h4>
+                        <div class="category pt-3 pb-3">
+                            <h6>التصنيف</h6>
+                            <ul class="p-0" (click)="updateCategory($event)">
+                                <div *ngFor="let category of categories">
+                                    <input class="ml-2" type="checkbox" value="{{category.id}}"><span>{{category.name}}</span>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="price pt-3 pb-3">
+                            <h6>السعر</h6>
+                            <div class="row">
+                                <div class="input">
+                                    <span class="d-block">أقل سعر</span>
+                                    <input value="1000" id="minPrice">
+                                </div>
+                                <div class="input">
+                                    <span class="d-block">أعلي سعر</span>
+                                    <input value="50000" id="maxPrice">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-3 pb-3" (click)="updateColor($event)">   
+                            <h6>اللون</h6>
+                            <div class="color">
+                                <i class="fas fa-square" *ngFor="let color of colors" style="color: {{color.code}};" id="{{color.id}}"></i>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 pb-3">
+                            <button class="border-0 btn-primary rounded text-center w-100 p-2" (click)="updateProducts()">تحديث المنتجات</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup text-center col-10 col-md-8 col-lg-5 m-auto" style="direction: rtl;" *ngIf="showWishlistAlert">
+    يرجي تسجيل الدخول لحسابك لتتمكن من تخزين منتجاتك المفضلة
+    <button (click)="changeshowWishlistAlert()" class="border-0">حسنا</button>
+</div>
+
+<app-footer></app-footer>

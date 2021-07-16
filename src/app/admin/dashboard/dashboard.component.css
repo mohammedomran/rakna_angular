@@ -1,0 +1,79 @@
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.bg-creamy {
+    background-color: #ecf0f1 !important;
+}
+
+.dashboard .nav i {
+    width: 20px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.list-group {
+    border-radius: 0;
+}
+.list-group-item {
+    border: 0;
+    background-color: transparent;
+}
+.list-group-item.active {
+    border: 0;
+    background-color: #303952;
+}
+
+.side-nav .nav {
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    width: 16.66667%;
+    background-color: #eee;
+    overflow-y: auto;
+}
+
+.top-nav {
+    background-color: #eee;
+}
+
+.top-nav .row a {
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+}
+
+
+.profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* The emerging W3C standard
+   that is currently Firefox-only */
+   * {
+    scrollbar-width: thin;
+    scrollbar-color: #000 #eee;
+  }
+  
+  /* Works on Chrome/Edge/Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+  *::-webkit-scrollbar-track {
+    background: #eee;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: #303952;
+    border-radius: 20px;
+    border: 3px solid #eee;
+  }

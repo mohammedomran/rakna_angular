@@ -1,0 +1,25 @@
+
+
+li {
+    list-style-type: none;
+}
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.back {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+
+nav.navigation a {
+    color: #fff;
+    background-color: #303952;
+}

@@ -1,0 +1,13 @@
+.body {
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/bg-admin.png');
+    color: #fff;
+    padding-top: 200px;
+}
+a {
+    color: #fff;
+}
+.loginaseditor:focus {
+    outline: 0;
+}

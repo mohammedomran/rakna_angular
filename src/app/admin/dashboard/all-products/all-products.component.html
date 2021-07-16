@@ -1,0 +1,60 @@
+<div class="col-11 m-auto">
+  <div class="nav row text-right justify-content-around" style="direction: rtl;">
+    <div class="col-12 col-lg-4 ">
+      <div class="all" routerLink="show">
+        <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/product-number.png" width="50px">
+        <h3 class="m-0">المنتجات : {{products_count}}</h3>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <div class="add" routerLink="add">
+        <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/product-add.png" width="50px">
+        <h3 class="m-0">إضافة منتج جديد</h3>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <div class="search" routerLink="search">
+        <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/product-search.png" width="50px">
+      <h3 class="m-0">البحث عن منتج</h3>
+      </div>
+    </div>
+  </div>
+  
+  <div class="products-list row text-right">
+    <div class="col-12">
+      <ul class="list-group list-group-flush">
+        
+        <li class="list-group-item">
+          <ul class="row justify-content-between">
+            <li class="col-2">الصورة</li>
+            <li class="col-2">اسم المنتج</li>
+            <li class="col-2">التصنيف</li>
+            <li class="col-2">السعر</li>
+            <li class="col-2">مرات البيع</li>
+            <li class="col-2">التقييم</li>
+          </ul>
+        </li>
+
+        <li class="list-group-item product" *ngFor="let product of latest_products">
+          <ul class="row justify-content-between align-items-center">
+            <li class="col-2"><img src="{{product.main_image}}" height="40px"></li>
+            <li class="col-2">{{product.name}}</li>
+            <li class="col-2">{{product.category.name}}</li>
+            <li class="col-2">{{product.price}}</li>
+            <li class="col-2">{{product.orders.length}}</li>
+            <li class="col-2"><div class="rate">
+              <i class="fas fa-star orange" *ngFor="let star of getAvg(product.reviews)"></i>
+              <i class="fas fa-star gray" *ngFor="let star of returnArray(5- getAvg(product.reviews).length)"></i>
+            </div></li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <button class="w-100 mt-2 bg-blue row align-items-center border-0 rounded  justify-content-center" routerLink="show">عرض جميع المنتجات <i class="fas fa-angle-down"></i></button>
+    </div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

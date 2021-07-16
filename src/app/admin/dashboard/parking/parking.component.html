@@ -1,0 +1,15 @@
+<div class="col-11 mr-auto ml-auto pt-5 mt-5">
+    <div class="row text-center">
+        <div class="col-3" *ngFor="let sensor of sensors">
+                <h4>Place  {{sensor.id}}</h4>
+
+                <div class="parking-free" *ngIf="!sensor.status">
+                    <img src="https://i.imgur.com/i1vMdRM.png" height="80px">
+                </div>
+
+                <div class="parking-full" *ngIf="sensor.status">
+                    <img src="https://i.imgur.com/lF9fAr4.png" height="80px">
+                </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+li {
+    list-style-type: none;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+
+h5, .h5 {
+    font-size: 17px;
+}
+.h6 {
+    font-size: 15px;
+}
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: cover;
+}
+
+.blue {
+    color: #303952;
+}
+
+i {
+    width: 30px;
+    text-align: center;
+}
+
+.back {
+    cursor: pointer;
+}
+
+.payment-method-bg {
+    background-size: contain;
+    background-position: center;
+    height: 32px;
+    background-repeat: no-repeat;
+    width: 15%;
+}
+.product-bg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 30px;
+}

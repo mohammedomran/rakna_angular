@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<div class="products-area pt-5 pb-5 mt-5 mb-5">
+    <div class="container m-auto">
+        <div class="heading text-right pb-10" style="direction: rtl;">
+            <div class="row justify-content-center m-auto align-items-center">
+                <img class="wishlistImg" src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/wishlist.png" width="80px">
+                <h5 class="mb-0 mr-3">قائمة الامنيات الخاصة بك</h5>
+            </div>
+        </div>
+        <div class="details">
+            <div class="row text-right" style="direction: rtl;">
+                <div class="col-12">
+                    <div class="products text-right row justify-content-start" style="direction: rtl;">
+
+                        <div *ngFor="let product of products" class="col-12 col-lg-3 p-0 bg-white">
+                            <div class="product mb-3">
+                                <div class="discount bg-yellow d-inline-block text-right"><i class="fas fa-tags ml-2"></i><span>تخفيض 20%</span></div>
+                                
+                                <div class="product-image text-center">
+                                    <div class="main_image" style="background-image: url({{product.main_image}});" width="60%" routerLink="{{product.id}}"></div>
+                                </div>
+                                <div class="details row align-items-center">
+                                    <h6 class="m-0">{{product.name}}</h6> <p class="m-0 pl-1 pr-1"> - </p>
+                                    <p class="m-0">{{product.price}} ج</p>
+                                </div>
+                                <div class="add text-right">
+                                    <i class="fas fa-shopping-cart ml-2" (click)="addToCart(product.id)"></i>
+                                    <i class="fas fa-heart-broken" (click)="deleteFromWishlist(product.id)"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <h4 class="mb-5 text-center" *ngIf="!loginStatus">يرجي تسجيل الدخول لعرض قائمة الأمنيات الخاصة بك</h4>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

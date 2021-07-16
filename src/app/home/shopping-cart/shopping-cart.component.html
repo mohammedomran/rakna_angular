@@ -1,0 +1,163 @@
+<app-navbar></app-navbar>
+<h3 class="text-center mt-5 mb-5">عربة التسوق جاهزة الآن<img class="cart" src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/cart.png"></h3>
+<div class="container m-auto">
+    <div class="shopping-cart row text-right mt-5 mb-5 pt-5 pb-5" style="direction: rtl;">
+        <div class="col-12 col-lg-9 text-center">
+            <div class="cart row justify-content-between p-0 text-right">
+                <h5>عربة التسوق</h5>
+                <h5>{{productsCount}} منتجات</h5>
+            </div>
+            <hr>
+            <div class="heading row pb-2">
+                <div class="d-none d-lg-block col-4 col-lg-2">  
+                    <h5>الصورة</h5>
+                </div>
+                <div class="d-none d-lg-block col-4 col-lg-2">  
+                    <h5>المنتج</h5>
+                </div>
+                <div class="d-none d-lg-block col-4 col-lg-2">  
+                    <h5>السعر</h5>
+                </div>
+                <div class="d-none d-lg-block col-2">  
+                    <h5>الكمية</h5>
+                </div>
+                <div class="d-none d-lg-block col-lg-2">  
+                    <h5>السعر</h5>
+                </div>
+                <div class="d-none d-lg-block col-lg-1">  
+                    <h5>اللون</h5>
+                </div>
+                <div class="d-none d-lg-block col-lg-1">  
+                </div>
+            </div>
+            <div class="products">
+                <div class="product row align-items-center mb-2" *ngFor="let product of products">
+                    <div class="product-image col-4 col-lg-2 h-100 row align-items-center justify-content-center">
+                        <div class="product_image" style="background-image: url({{product.main_image}});"></div>
+                        
+                    </div>
+                    <div class="col-4 col-lg-2 mb-1">  
+                        <h6 class="m-0">{{product.name}}</h6>
+                    </div>
+                    <div class="col-lg-2 d-lg-block d-none">  
+                        <p class="m-0" *ngIf="product.price_discount">{{product.price-product.price_discount}} ج</p>
+                        <p class="m-0" *ngIf="product.percentage_discount">{{product.price-product.price*product.percentage_discount/100}} ج</p>
+                        <p class="m-0" *ngIf="product.percentage_discount==0 && product.price_discount==0">{{product.price}} ج</p>
+                    </div>
+                    <div class="col-4 col-lg-2 p-0 mb-1">
+                        <div class="counter row justify-content-center">
+                            <i *ngIf="product.price_discount" class="fas fa-plus pointer bg-red" (click)="plus($event, product.id, product.price-product.price_discount)"></i>
+                            <i *ngIf="product.percentage_discount" class="fas fa-plus pointer bg-red" (click)="plus($event, product.id, product.price-product.price*product.percentage_discount/100)"></i>
+                            <i *ngIf="product.percentage_discount==0 && product.price_discount==0" class="fas fa-plus pointer bg-red" (click)="plus($event, product.id, product.price)"></i>
+                            <div class="bg-white">{{product.quantity}}</div>
+                            <i *ngIf="product.price_discount" class="fas fa-minus pointer bg-red" (click)="minus($event, product.id, product.price-product.price_discount)"></i>
+                            <i *ngIf="product.percentage_discount" class="fas fa-minus pointer bg-red" (click)="minus($event, product.id, product.price-product.price*product.percentage_discount/100)"></i>
+                            <i *ngIf="product.percentage_discount==0 && product.price_discount==0" class="fas fa-minus pointer bg-red" (click)="minus($event, product.id, product.price)"></i>
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-2 mb-1 product-price">
+                        <p class="m-0" *ngIf="product.price_discount">{{product.price-product.price_discount}} ج</p>
+                        <p class="m-0" *ngIf="product.percentage_discount">{{product.price-product.price*product.percentage_discount/100}} ج</p>
+                        <p class="m-0" *ngIf="!product.percentage_discount && !product.price_discount">{{product.price-product.price_discount}} ج</p>
+                    </div>
+
+                    <div class="col-4 col-lg-1">
+                        <div *ngIf="product.colors.length">
+                            <i (click)="showProductColors(product.id)" class="m-0 fas fa-square" style="color: {{product.selected_color.code}};" id="{{product.selected_color.id}}"></i>
+
+                            <div id="productColors{{product.id}}" class="d-none product_colors" *ngIf="product.colors">
+                                <i (click)="changeProductColor(product.id, color)" *ngFor="let color of product.colors" class="fas fa-square" style="color: {{color.code}};" id="{{color.id}}"></i>
+                            </div>
+                            <!--<span (click)="duplicate(product.id)">duplicate</span>-->
+                        </div>
+                    </div>
+
+                    <div class="col-4 col-lg-1">  
+                        <i class="fas fa-trash-alt bg-red" (click)="deleteProduct($event)" id="{{product.id}}"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 pt-0 pb-4 pl-0 pr-0">
+
+            <!--<div class="payment bg-white pt-4 pb-4 pr-3 pl-3">
+                <h5>طريقة الدفع</h5>
+                <div class="methods row justify-content-between align-items-center">
+                    <div class="col">
+                        <img src="../../../assets/images/visa.png" width="100%">
+                    </div>
+                    <div class="col">
+                        <img src="../../../assets/images/mastercard.png" width="80%">
+                    </div>
+                    <div class="col">
+                        <img src="../../../assets/images/paypal.png" width="100%">
+                    </div>
+                </div>
+
+                <div class="form">
+                    <div class="mb-4">
+                        <h5 class="mb-0">اسم صاحب الكارت</h5>
+                        <input type="text" class="form-control border-bottom">
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="mb-0">رقم الكارت</h5>
+                        <input type="text" class="form-control border-bottom">
+                    </div>
+                    <div class="mb-4 row">
+                        <div class="col-8 p-0">
+                            <h5>تاريخ الانتهاء</h5>
+                            <input type="text" class="form-control border-bottom">
+                        </div>
+                        <div class="col-4 p-0">
+                            <h5 class="text-left">CVV</h5>
+                            <input type="text" class="form-control border-bottom">
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            
+            <div class="cost bg-white pt-4 pb-4 pr-3 pl-3 mt-4">
+                <div class="row justify-content-between" style="flex-direction: column;" *ngIf="addresses.length">
+                    <h5>قم باختيار عنوان التوصيل</h5>
+                    <select class="form-group p-1 rounded mt-2" id="addressId" (click)="changeSelectedAddress($event)">
+                        <option value="{{address.id}}" class="p-1 form-control" *ngFor="let address of addresses">{{address.address.slice(0, 20)}}</option>
+                    </select>
+                </div>
+                <div class="row justify-content-between" *ngIf="!addresses.length">
+                    <button class="form-control bg-red border-0 rounded" (click)="showAddressAlert()">إضافة عنوانك الآن</button>
+                </div>
+            </div>
+            <div class="cost bg-white pt-4 pb-4 pr-3 pl-3 mt-4">
+                <div class="row justify-content-between">
+                    <h5>تكلفة المنتجات</h5> <h5>{{total_price}} ج</h5>
+                </div>
+                <div class="row justify-content-between">
+                    <h5>تكلفة الشحن</h5> <h5>{{this.delivery}} ج</h5>
+                </div>
+                <div class="row justify-content-between">
+                    <h5>الضرائب</h5> <h5>{{this.taxes}} ج</h5>
+                </div>
+                <hr>
+                <div class="color-red row justify-content-between">
+                    <h4>الإجمالي</h4> <h4>{{total_price+taxes+delivery}} ج</h4>
+                </div>
+            </div>
+
+            <button (click)="completeOrder()" class="complete-order form-control bg-red mt-4">إتمام طلب الشراء</button>
+            <!--<button (click)="payNow()" class="complete-order form-control bg-red mt-4">ادفع الآن</button>-->
+
+        </div>
+    </div>
+</div>
+
+<div class="popup col-10 col-lg-6 text-center" *ngIf="showCompleteOrderAlert" style="direction: rtl;">
+    <p id="alert">{{alertData}}</p>
+    <button (click)="changeCompleteOrderAlert()" class="border-0">حسنا</button>
+</div>
+<div class="popup col-10 col-lg-6 text-center" *ngIf="AddressAlert">
+    <input id="newAddress" type="text" class="form-control p-2">
+    <button (click)="storeAddress()" class="border-0 p-2 rounded">إضافة العنوان الآن</button>
+</div>
+
+
+<app-footer></app-footer>

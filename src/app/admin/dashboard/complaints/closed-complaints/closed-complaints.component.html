@@ -1,0 +1,87 @@
+<div class="col-11 m-auto text-right pt-5 pb-5" style="direction: rtl;">
+    <div class="row" style="direction: ltr;">
+        <div class="col-12">
+            <div class="mb-3 back justify-content-end w-100 row align-items-center text-primary" routerLink="../">
+                <p class="m-0">Return</p>
+                <i class="fas fa-angle-right ml-0"></i>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            
+            <div class="order border rounded pt-3 pb-3 pr-3 pl-3 mb-3" *ngFor="let complaint of complaints">
+                <div class="heading row align-items-center">
+                    
+                    <div class="date col-6 row align-items-center">
+                        <div class="profile-pic ml-3" style="background-image: url({{complaint.user.profile_pic}});"></div>
+                        <h5 class="m-0">{{complaint.user.first_name + " " + complaint.user.last_name}}</h5>
+                    </div>
+                    <div class="date col-6">
+                        <i class="fas fa-calendar-alt blue ml-1"></i>
+                        تاريخ  إرسال الشكوي :
+                        <span class="text-muted">{{complaint.created_at}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="content">
+                    <ul class="list-group p-0">
+                        <li class="h5">محتوي الشكوي</li>
+                        <p>{{complaint.content}}</p>
+                    </ul>
+                    
+                </div>
+        
+                <hr>
+        
+                <div class="row mb-2">
+                    <div class="date col-6" *ngIf="complaint.status == 0">
+                        <i class="fas fa-frown text-danger"></i>
+                        حالة الشكوي :
+                        <span class="text-muted">لم تتم مراجعتها</span>
+                    </div>
+                    <div class="date col-6"*ngIf="complaint.status == 1">
+                        <i class="fas fa-smile text-success"></i>
+                        حالة الشكوي :
+                        <span class="text-muted">تم الرد عليها</span>
+                    </div>
+                    <div class="date col-6" *ngIf="complaint.status == 2">
+                        <i class="fas fa-smile text-success"></i>
+                        حالة الشكوي :
+                        <span class="text-muted">تم إغلاقها</span>
+                    </div>
+                    
+                </div>
+        
+        
+                <div class="row" *ngIf="complaint.status == 0">   
+                    <div class="date">
+                        <button class="form-control bg-primary text-white"><a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to={{complaint.user.email}}" target="_blank" class="text-white" style="text-decoration: none;">الرد علي الشكوي</a></button>
+                    </div>
+                    <div class="date">
+                        <button (click)="update(1, complaint.id, $event)" class="form-control bg-success text-white">لقد تم الرد</button>
+                    </div>
+                    <div class="date">
+                        <button (click)="update(2, complaint.id, $event)" class="form-control bg-dark text-white">إغلاق الشكوي الآن</button>
+                    </div>
+                </div>
+                <div class="row" *ngIf="complaint.status == 1">   
+                    <div class="date">
+                        <button class="form-control bg-primary text-white"><a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to={{complaint.user.email}}" target="_blank" class="text-white" style="text-decoration: none;">إرسال رد آخر</a></button>
+                    </div>
+                    <div class="date">
+                        <button (click)="update(2, complaint.id, $event)" class="form-control bg-dark text-white">إغلاق الشكوي الآن</button>
+                    </div>
+                </div>
+                <div class="row" *ngIf="complaint.status == 2">
+                    <div class="date">
+                        <button (click)="update(1, complaint.id, $event)" class="form-control bg-dark text-white">إعادة فتح الشكوي</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
+</div>

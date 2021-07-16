@@ -1,0 +1,41 @@
+<div class="w-100 top-nav p-3 bg-dark text-white mb-5">
+  <div class="container m-auto">
+    <div *ngIf="vendorData != null" class=" row align-items-center justify-content-between">
+    
+      <h5 class="mb-0 mr-2">{{vendorData.first_name + " " + vendorData.last_name}}</h5>
+      <p class="mb-0 ml-3" style="cursor: pointer;" (click)="logout()">تسجيل خروج<i class="ml-1 fas fa-sign-out-alt"></i></p>
+
+    </div>
+  </div>
+</div>
+
+<div class="col-11 m-auto text-right mt-5 mb-5 pt-5 pb-5" style="direction: rtl;">
+    <div class="row nav">
+        <div class="col-12 col-lg-4 show">
+            <div class="all" routerLink="shipments">
+              <img src="https://aldorahouse.s3.eu-west-1.amazonaws.com/assets/images/icons/order.png" width="50px">
+              <h3 class="m-0">الشحنات : {{shipments.length}}</h3>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 show">
+            <div class="all">
+              <img src="https://aldorahouse.s3.eu-west-1.amazonaws.com/assets/images/adv2.png" width="50px">
+              <h3 class="m-0">تكلفة الشحنات : {{total_shipments_price}}</h3>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 show">
+            <div class="all">
+              <img src="https://aldorahouse.s3.eu-west-1.amazonaws.com/assets/images/icons/product-number.png" width="50px">
+              <h3 class="m-0">تم دفعه : {{total_payed}}</h3>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 show">
+            <div class="all">
+              <img src="https://aldorahouse.s3.eu-west-1.amazonaws.com/assets/images/blocked.png" width="50px">
+              <h3 class="m-0">المديونية : {{total_shipments_price-total_payed}}</h3>
+            </div>
+        </div>
+    </div>
+
+    
+</div>

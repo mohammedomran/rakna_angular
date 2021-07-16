@@ -1,0 +1,51 @@
+<div class="col-11 m-auto">
+    <div class="nav row text-right justify-content-center" style="direction: rtl;">
+      <div class="col-12 col-lg-4 ">
+        <div class="all">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/admins-show.png" width="50px">
+          <h3 class="m-0">المحررين : {{editors.length}}</h3>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="add" routerLink="add">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/admins-add.png" width="50px">
+          <h3 class="m-0">إضافة محرر جديد</h3>
+        </div>
+      </div>
+    </div>
+    
+    <div class="products-list row text-right">
+        <div class="col-12">
+          <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item heading">
+              <ul class="row justify-content-between">
+                <li class="col-1">الصورة</li>
+                <li class="col-2">اسم المحرر</li>
+                <li class="col-2">الموبايل</li>
+                <li class="col-3">الإيميل</li>
+                <li class="col-2"> </li>
+                <li class="col-2"> </li>
+              </ul>
+            </li>
+            <li class="list-group-item data" *ngFor="let editor of editors">
+              <ul class="row justify-content-between align-items-center">
+                <li class="col-1"><div class="profile-pic" style="background-image: url({{editor.profile_pic}});"></div></li>
+                <li class="col-2">{{editor.first_name + " " + editor.last_name}}</li>
+                <li class="col-2">{{editor.mobile}}</li>
+                <li class="col-3">{{editor.email}}</li>
+                <li class="col-2">{{editor.created_at}}</li>
+                <li class="col-2">
+                  <button class="btn-danger border-0 p-1 ml-1 rounded" (click)="delete(editor.id)">حذف</button>
+                </li>
+              </ul>
+            </li>
+    
+          </ul>
+    
+        </div>
+      </div>
+  </div>
+  
+  
+  <router-outlet></router-outlet>

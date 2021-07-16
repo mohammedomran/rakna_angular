@@ -1,0 +1,51 @@
+<div class="w-100 top-nav p-3 bg-dark text-white mb-5">
+  <div class="container">
+    <div *ngIf="vendorData != null" class=" row align-items-center justify-content-between">
+    
+      <h5 class="mb-0 mr-2">{{vendorData.first_name + " " + vendorData.last_name}}</h5>
+      <p class="mb-0 ml-3" style="cursor: pointer;" (click)="logout()">تسجيل خروج<i class="ml-1 fas fa-sign-out-alt"></i></p>
+
+    </div>
+  </div>
+</div>
+
+<div class="container m-auto">
+
+  <div class="row" style="direction: ltr;">
+    <div class="col-12">
+        <div style="cursor: pointer;" class="mb-3 back justify-content-end w-100 row align-items-center text-primary" routerLink="../">
+            <p class="m-0 mr-2">رجوع</p>
+            <i class="fas fa-angle-right ml-0"></i>
+        </div>
+    </div>
+  </div>
+    <div class="row text-right" style="direction: rtl;">
+        <div class="col-12 col-lg-8 m-auto">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                  <h5 class="text-center mb-3">الشحنات الخاصة بك</h5>
+              </div>
+            </div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col-2">#</th>
+                    <th scope="col-3">تكلفة الشحنة</th>
+                    <th scope="col-3">تم دفعه</th>
+                    <th scope="col-3">مديونية</th>
+                    <th scope="col-4">تاريخ الشحنة</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let shipment of shipments" routerLink="{{shipment.id}}" style="cursor: pointer;">
+                      <th scope="row">{{shipment.id}}</th>
+                      <td>{{shipment.price}}</td>
+                      <td>{{count_payed(shipment, shipment.bills)}}</td>
+                      <td>{{count_not_payed(shipment.bills)}}</td>
+                      <td>{{shipment.created_at}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+
+.bg-gray, .bg-gray a{
+    background-color: #e2e2e2;
+    color: #2f2f30;
+}
+
+ul.account {
+    padding-right: 0;
+    margin-bottom: 0;
+}
+.account li {
+    list-style-type: none;
+    transition: 0.3s all ease-in-out;
+    margin-bottom: 10px;
+}

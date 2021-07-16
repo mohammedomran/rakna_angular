@@ -1,0 +1,22 @@
+<ul class="p-0 account">
+    <li class="bg-gray p-3">
+        <i class="fas fa-user ml-2"></i><h5 class="d-inline-block">الاسم</h5>
+        <p>{{user.first_name + " " + user.last_name}}</p>
+    </li>
+    <li class="bg-gray p-3">
+        <i class="fas fa-mobile-alt ml-2"></i><h5 class="d-inline-block">رقم الموبايل</h5>
+        <p>{{user.mobile}}</p>
+    </li>
+    <li class="bg-gray p-3">
+        <i class="fas fa-envelope ml-2"></i><h5 class="d-inline-block">البريد الإلكتروني</h5>
+        <p>{{user.email}}</p>
+    </li>
+    <li class="bg-gray p-3">
+        <i class="fas fa-key ml-2"></i><h5 class="d-inline-block">الرقم السري</h5>
+        <p>************</p>
+    </li>
+    <li class="bg-gray p-3">
+        <i class="fas fa-map-marker-alt ml-2"></i><h5 class="d-inline-block">العنوان</h5>
+        <p *ngFor="let address of user.addresses">{{address.address}}</p>
+    </li>
+</ul>

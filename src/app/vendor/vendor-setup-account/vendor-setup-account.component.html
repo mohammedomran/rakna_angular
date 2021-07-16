@@ -1,0 +1,73 @@
+<div class="w-100 top-nav p-3 bg-dark text-white mb-5">
+    <div class="container m-auto">
+      <div *ngIf="vendorData != null" class=" row align-items-center justify-content-between">
+      
+        <h5 class="mb-0 mr-2">{{vendorData.first_name + " " + vendorData.last_name}}</h5>
+        <p class="mb-0 ml-3" style="cursor: pointer;" (click)="logout()">تسجيل خروج<i class="ml-1 fas fa-sign-out-alt"></i></p>
+  
+      </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center mt-3">
+            <h3 class="mt-4">قم بإعداد حسابك الآن</h3>
+        </div>
+
+
+        <div class="add col-12 col-lg-7 ml-auto mr-auto mt-5 text-right" style="direction: rtl;">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <!--<p class="text-danger h6" [(ngModel)]="isError">{{error}}</p>-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <p>الاسم الأول</p>
+                    <div class="form-group">
+                        <input id="first_name" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <p>الاسم الأخير</p>
+                    <div class="form-group">
+                        <input id="last_name" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <p>الرقم السري</p>
+                    <div class="form-group">
+                        <input id="password" type="password" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <p>رقم الموبايل</p>
+                    <div class="form-group">
+                        <input id="mobile" type="text" class="form-control">
+                    </div>
+                </div>
+                <!--<div class="col-12 col-lg-6">
+                    <p>الصورة الشخصية</p>
+                    <div class="form-group">
+                        <input id="profile_pic" type="file" class="form-control">
+                    </div>
+                </div>-->
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <button class="btn-primary border-0 form-control" (click)="saveChanges()">حفظ التعديلات</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

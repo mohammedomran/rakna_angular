@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-12">
+        <p>يمكنك تعديل العنوان أو حذفه</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <input id="address" class="mb-0 form-control" type="text" value="{{address.address}}">
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-6">
+        <div class="bg-primary p-2 text-white rounded row align-items-center" style="cursor: pointer;" (click)="updateAddress()">  
+            <i class="ml-2 rounded fas fa-save" style="cursor: pointer;" routerLink="/profile/address/{{address.id}}"></i>
+            <p class="mb-0">حفظ التعديل</p>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="bg-danger p-2 text-white rounded row align-items-center" style="cursor: pointer;" (click)="DeleteAddress()">  
+            <i class="ml-2 rounded fas fa-times-circle" style="cursor: pointer;" routerLink="/profile/address/{{address.id}}"></i>
+            <p class="mb-0">حذف</p>
+        </div>
+    </div>
+</div>

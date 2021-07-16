@@ -1,0 +1,105 @@
+<div class="col-12 pt-5 pb-5">
+    <div class="col-12">
+        <div class="mb-3 back justify-content-end w-100 row align-items-center text-primary" routerLink="../">
+          <p class="m-0">رجوع</p>
+          <i class="fas fa-angle-right ml-2"></i>
+        </div>
+    </div>
+    
+    <div class="add col-8 ml-auto mr-auto mt-5" style="direction: rtl;">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p>اسم المنتج</p>
+                <div class="form-group">
+                    <input id="name" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p>التصنيف</p>
+                <div class="form-group">
+                    <select class="form-control" id="category">
+                        <option selected>قم باختيار تصنيف المنتج</option>
+                        <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col-12">
+                <p>اللون</p>
+                    
+                    <div class="" (click)="updateColor($event)">   
+                        <div class="color">
+                            <i class="fas fa-square" *ngFor="let color of colors" style="color: {{color.code}};" id="{{color.id}}"></i>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-12">
+                <p>الوصف والمميزات</p>
+                <textarea id="description" class="form-control" style="height: 150px;"></textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-6">
+                <p>السعر</p>
+                <div class="form-group">
+                    <input id="price" type="number" class="form-control">
+                </div>
+            </div>
+            <div class="col-6">
+                <p>الخصم</p>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <input id="price_discount" type="text" class="form-control" placeholder="الخصم بالجنية">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <input id="percentage_discount" type="text" class="form-control" placeholder="الخصم بالنسبة">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-6">
+                <p>الصورة الأساسية</p>
+                <div class="form-group">
+                    <form  enctype="multipart/form-data">
+                        <input id="main_image" type="file" class="form-control" (change)="image($event)">
+                    </form>
+                </div>
+            </div>
+            <div class="col-6">
+                <p>الصور الفرعية</p>
+                <div class="form-group">
+                    <input id="image-upload" type="file" (change)="upload($event)" multiple/>
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <button class="form-group border-0 bg-red form-control" (click)="addProduct()">إضافة المنتج الآن</button>
+        </div>
+
+    </div>
+    
+    <div class="big">
+    </div>
+    
+    <div class="popup col-3 m-auto text-center">
+        <div class="spinner-border text-center mb-4" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <img src="../../../../../assets/images/icons/check.png" width="50px" class="mr-auto ml-auto check mb-4">
+        <h4>جاري رفع المنتج الآن</h4>
+        <button (click)="removePopup()" class="notificationBtn border-0 pt-1 pb-1 pr-3 pl-3 mt-2 m-auto rounded text-white bg-primary">حسنا</button>
+    </div>
+</div>

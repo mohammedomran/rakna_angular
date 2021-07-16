@@ -1,0 +1,70 @@
+<div class="products-list row text-right col-11 m-auto pt-5 pb-5">
+  
+  <div class="col-12">
+    <div class="mb-3 back justify-content-end w-100 row align-items-center text-primary" routerLink="../">
+      <p class="m-0">رجوع</p>
+      <i class="fas fa-angle-right ml-2"></i>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <ul class="list-group list-group-flush">
+      
+      <li class="list-group-item">
+        <ul class="row justify-content-between">
+          <li class="col-1">ID</li>
+          <li class="col-1">الصورة</li>
+          <li class="col-2">اسم المنتج</li>
+          <li class="col-2">التصنيف</li>
+          <li class="col-1">السعر</li>
+          <li class="col-1">البيع</li>
+          <li class="col-1">المفضلة</li>
+          <li class="col-2">التقييم</li>
+          <li class="col-1"></li>
+        </ul>
+      </li>
+
+      <li class="list-group-item product" *ngFor="let product of products">
+        <ul class="row justify-content-between align-items-center">
+          <li class="col-1">{{product.id}}</li>
+          <li class="col-1 main_image" style="background-image: url({{product.main_image}});"></li>
+          <li class="col-2">{{product.name}}</li>
+          <li class="col-2"><span *ngIf="product.category">{{product.category.name}}</span></li>
+          <li class="col-1">{{product.price}}</li>
+          <li class="col-1">{{product.orders.length}}</li>
+          <li class="col-1">{{product.wishlists.length}}</li>
+          <li class="col-2"><div class="rate">
+            <i class="fas fa-star orange" *ngFor="let star of getAvg(product.reviews)"></i>
+            <i class="fas fa-star gray" *ngFor="let star of returnArray(5- getAvg(product.reviews).length)"></i>
+          </div></li>
+          <li class="col-1"><button class="btn-danger pt0 pb-0 pl-1 pr-1 rounded border-0" (click)="delete(product.id)">حذف</button></li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!--<div class="col-12">
+    <div class="row justify-content-center" style="direction: ltr;"> 
+      <nav class="navigation" aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link">1</a></li>
+          <li class="page-item"><a class="page-link">2</a></li>
+          <li class="page-item"><a class="page-link">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>-->
+
+</div>

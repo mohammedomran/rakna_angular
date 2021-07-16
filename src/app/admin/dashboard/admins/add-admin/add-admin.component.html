@@ -1,0 +1,37 @@
+<div class="col-12 pt-5 pb-5">
+    <div class="col-12">
+        <div class="mb-3 back justify-content-end w-100 row align-items-center text-primary" routerLink="../">
+          <p class="m-0">Return</p>
+          <i class="fas fa-angle-right ml-2"></i>
+        </div>
+    </div>
+    
+    <div class="add col-8 ml-auto mr-auto mt-5">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-muted">enter the new admin admin's email and password, once he login, he can change it</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>Email</p>
+                <div class="form-group">
+                    <input id="email" type="email" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>Temporary password</p>
+                <div class="form-group">
+                    <input id="password" type="password" class="form-control">
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <button class="form-group border-0 bg-red form-control" (click)="addAdmin()">Add admin now</button>
+        </div>
+    </div>
+    
+</div>

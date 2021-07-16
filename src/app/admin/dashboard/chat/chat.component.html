@@ -1,0 +1,60 @@
+<div class="mt-3 chat col-11 mr-auto ml-auto text-right" style="direction: rtl;">
+    <div class="row">
+        
+        <div class="col-9 pl-1 bg-gray">
+            <div class="header row align-items-center p-3">
+                <div>
+                    <div class="row align-items-center">
+                        <div class="ml-2 mr-3 profile-pic" style="background-image: url({{currentUser.profile_pic}});"></div>
+                        <h5 class="m-0">{{currentUser.first_name + " " + currentUser.last_name}}</h5>
+                    </div> 
+                </div>
+                <div class="col-2 text-left">
+                    <span class="orange" *ngIf="currentUserStatus">Online</span>
+                    <span class="text-dark" *ngIf="!currentUserStatus">Offline</span>
+                </div>
+            </div>
+            
+            <hr class="m-0">
+            <div class=" bg-gray p-0" style="height: 450px; overflow-y: scroll;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                
+                <div class="pt-3 pb-3" *ngIf="messages">
+                    
+                    <div class="messages pt-1 pb-1 pr-3 pl-3" *ngFor="let msg of messages">
+                        <div class="message user-msg" *ngIf="msg.sender==currentUser.id">
+                            <p>{{msg.msg}}</p>
+                        </div>
+                        <div class="message admin-msg" *ngIf="msg.sender!=currentUser.id">
+                            <p>{{msg.msg}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 pb-3" *ngIf="!messages">
+                    No messages
+                </div>
+                
+            </div>
+            
+            <div class="footer row align-items-center justify-content-center p-2">
+                
+                <i class="fas fa-paper-plane blue" (click)="storeMsg()"></i>
+                <input id="msgContent123" type="text" class="col-10 border w-100">
+            </div>
+        </div>
+
+        
+
+        <div class="col-3 p-0">
+            <div class="chat-list row bg-blue pt-4 pb-1 pr-2">
+                <div *ngFor="let chat of chats"  >
+                    
+                    <div (click)="chatClicked(chat.userData.id)" routerLink="{{chat.userData.id}}" *ngIf="chat.status"  class="rounded chat-item mb-1 pt-2 pb-2 row justify-content-between align-items-center">
+                        <div class="mr-2 profile-pic" style="background-image: url({{chat.userData.profile_pic}});"></div>
+                        <p class="pl-2 mb-0">{{ chat.userData.first_name + " " +chat.userData.last_name }}</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

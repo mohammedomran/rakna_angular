@@ -1,0 +1,54 @@
+.bg-red, .bg-red a {
+    background-color:  #ff3838;
+    color: #fff;
+}
+
+
+.back {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+.main_image {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40px;
+}
+
+
+
+li {
+    font-size: 15px;
+}
+.heading li {
+    font-size: 16px;
+}
+
+.back {
+    cursor: pointer;
+    font-size: 18px;
+}
+li.list-group-item {
+    cursor: pointer;
+    transition: 0.4s all ease-in-out;
+}
+
+
+.products-list {
+    margin-top: 50px;
+}
+.products-list li {
+    direction: rtl;
+}
+i.fa-star {
+    font-size: 14px;
+}
+li {
+    list-style-type: none;
+}
+.list-group-item ul {
+    padding-right: 0;
+}

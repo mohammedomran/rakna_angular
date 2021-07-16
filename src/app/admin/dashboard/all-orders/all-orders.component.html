@@ -1,0 +1,48 @@
+<div class="col-11 m-auto">
+    <div class="nav row pt-5 text-right justify-content-center" style="direction: rtl;">
+      <div class="col-12 col-lg-4">
+        <div class="all" routerLink="all">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/order.png" width="50px">
+          <h3 class="m-0">الطلبات : {{orders.all_orders}}</h3>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="all not-revised" routerLink="not-revised">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/complaints.png" width="50px">
+        <h3 class="m-0">لم يتم مراجعتها : {{orders.not_revised}}    </h3>
+        </div>
+      </div>   
+      <div class="col-12 col-lg-4">
+        <div class="search under-delivery" routerLink="under-delivery">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/check.png" width="50px">
+        <h3 class="m-0">تم قبولها : {{orders.under_delivery}}</h3>
+        </div>
+      </div>
+    </div>
+    
+    <div class="nav mt-4 row justify-content-start text-right" style="direction: rtl;">
+      <div class="col-12 col-lg-4">
+        <div class="all delivered" routerLink="delivered">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/product-number2.png" width="50px">
+        <h3 class="m-0">تم توصيلها : {{orders.delivered}}</h3>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="all canceled" routerLink="canceled">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/blocked.png" width="50px">
+        <h3 class="m-0">تم إلغاؤها : {{orders.cancelled}}</h3>
+        </div>
+      </div> 
+      <!--
+      <div class="col-12 col-lg-4">
+        <div class="all search" routerLink="search">
+          <img src="../../../../assets/images/icons/users-search.png" width="50px">
+        <h3 class="m-0">البحث عن طلب</h3>
+        </div>
+      </div>-->
+    </div>
+    
+  </div>
+  
+  
+  <router-outlet></router-outlet>

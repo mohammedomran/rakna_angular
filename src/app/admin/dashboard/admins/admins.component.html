@@ -1,0 +1,52 @@
+<div class="col-11 m-auto">
+    <div class="nav row text-right justify-content-center" style="direction: rtl;">
+      <div class="col-12 col-lg-4 ">
+        <div class="all">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/admins-show.png" width="50px">
+          <h3 class="m-0">Admins : {{ admins.length }}</h3>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="add" routerLink="add">
+          <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/icons/admins-add.png" width="50px">
+          <h3 class="m-0">Add new admin</h3>
+        </div>
+      </div>
+    </div>
+    
+    <div class="products-list row">
+        <div class="col-12">
+          <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item heading">
+              <ul class="row justify-content-between">
+                <li class="col-1">Image</li>
+                <li class="col-2">Name</li>
+                <li class="col-2">Mobile</li>
+                <li class="col-3">Email</li>
+                <li class="col-2">Join date</li>
+                <li class="col-2"> </li>
+              </ul>
+            </li>
+            <li class="list-group-item data" *ngFor="let admin of admins">
+              <ul class="row justify-content-between align-items-center" *ngIf="admin.id!=adminId">
+                <li class="col-1"><div class="profile-pic" style="background-image: url({{admin.profile_pic}});"></div></li>
+                <li class="col-2">{{admin.first_name + " " + admin.last_name}}</li>
+                <li class="col-2">{{admin.mobile}}</li>
+                <li class="col-3">{{admin.email}}</li>
+                <li class="col-2">{{admin.created_at.slice(0,10)}}</li>
+                
+              <li class="col-2">
+                <button class="btn-danger border-0 p-1 ml-1 rounded" (click)="delete(admin.id)">Delete</button>
+              </li>
+              </ul>
+            </li>
+    
+          </ul>
+    
+        </div>
+      </div>
+  </div>
+  
+  
+  <router-outlet></router-outlet>

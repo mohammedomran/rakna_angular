@@ -1,0 +1,63 @@
+<div class="payment-section text-right" style="direction: rtl;">
+    <div class="row">
+        <div class="col">
+            <h4>وسائل الدفع</h4>
+            <hr>
+            <h5 class="mt-4">وسيلة الدفع الأساسية</h5>
+            
+            <div *ngFor="let payment_method of payment_methods">
+                <div class="method mt-3 p-3 border rounded" *ngIf="payment_method.is_primary==1">
+                    <div class="row justify-content-between align-items-center">
+                        <div>
+                            <p class="mb-0 d-inline-block">اسم صاحب الكارت : </p> <h6 class="d-inline-block mb-0 mr-2">{{payment_method.owner}}</h6>
+                        </div>
+                        <img src="{{payment_method.paymentmethod.icon}}" width="50px">
+                    </div>
+                    <div class="row justify-content-between align-items-center">
+                        <div>
+                            <p class="mb-0 d-inline-block">رقم الكارت : </p> <h6 class="d-inline-block mb-0 mr-2" style="letter-spacing: 2px;">{{payment_method.number}}</h6>
+                        </div>
+                    </div>
+                    <div class="mt-3 row align-items-center color-red delete" (click)="deleteMethod($event, payment_method.id)"><i class="fas fa-trash-alt ml-1"></i> <p class="m-0">إزالة</p></div>
+                </div>
+            </div>
+
+        </div>
+    </div>  
+
+    <div class="row mt-4">
+        <div class="col">
+            <h5 class="mt-4">وسائل الدفع الأخري</h5>
+            
+            <div *ngFor="let payment_method of payment_methods">
+                <div class="method mt-3 p-3 border rounded" *ngIf="payment_method.is_primary==0">
+                    <div class="row justify-content-between align-items-center">
+                        <div (click)="makePrimary(payment_method.id)" class="col-12 p-0" style="cursor: pointer;">
+                            <i class="fas fa-home ml-1"></i>
+                            <span>أجعلها الأساسية</span>
+                        </div>
+                        <div>
+                            <p class="mb-0 d-inline-block">اسم صاحب الكارت : </p> <h6 class="d-inline-block mb-0 mr-2">{{payment_method.owner}}</h6>
+                        </div>
+                        <img src="{{payment_method.paymentmethod.icon}}" width="50px">
+
+                    </div>
+                    <div class="row justify-content-between align-items-center">
+                        <div>
+                            <p class="mb-0 d-inline-block">رقم الكارت : </p> <h6 class="d-inline-block mb-0 mr-2" style="letter-spacing: 2px;">{{payment_method.number}}</h6>
+                        </div>
+                    </div>
+                    <div class="mt-3 row align-items-center color-red delete" id="{{payment_method.id}}" (click)="deleteMethod($event, payment_method.id)"><i class="fas fa-trash-alt ml-1"></i> <p class="m-0">إزالة</p></div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>    
+
+    <div class="row mt-4">
+        <div class="col">
+            <button class="btn-success form-control col-12 col-lg-6" routerLink="../add-payment-method">إضافة وسيلة دفع أخري</button>
+        </div>
+    </div>    
+</div>

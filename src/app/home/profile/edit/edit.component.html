@@ -1,0 +1,74 @@
+<div class="edit-section text-right" style="direction: rtl;">
+    <div class="row">
+        <div class="col">
+            <i class="fas fa-user ml-2"></i><h5 class="d-inline-block">الاسم الأول</h5>
+            <input id="first_name" class="form-control" type="text" value="{{user.first_name}}">
+        </div>
+        <div class="col">
+            <i class="fas fa-user ml-2"></i><h5 class="d-inline-block">الاسم الأخير</h5>
+            <input id="last_name" class="form-control" type="text" value="{{user.last_name}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <i class="fas fa-mobile-alt ml-2"></i><h5 class="d-inline-block">رقم الموبايل</h5>
+            <input id="mobile" class="form-control" type="number" value="{{user.mobile}}">
+        </div>
+        <div class="col">
+            <i class="fas fa-envelope ml-2"></i><h5 class="d-inline-block">البريد الإلكتروني</h5>
+            <input id="email" class="form-control" type="email" value="{{user.email}}">
+        </div>
+    </div><!--
+    <div class="row">
+        <div class="col">
+            <i class="fas fa-key ml-2"></i><h5 class="d-inline-block">الرقم السري</h5>
+            <button id="resetPass" class="form-control btn-success">إرسال إيميل لتغيير الرقم السري</button>
+        </div>
+        <div class="col">
+            
+        </div>
+    </div>-->
+    <div class="row justify-content-center">
+        <!--routerLink="/profile/address/{{address.id}}"-->
+        <div class="col" (click)="manageAddresses($event)">
+            <i class="fas fa-map-marker-alt ml-2"></i><h5 class="d-inline-block">العنوان</h5>
+            <div id="all_addresses" class="container m-auto">
+                <div class="row mb-1 align-items-center justify-content-center" *ngFor="let address of addresses">
+                    <div class="col-12 mb-0">
+                        <div class="row">
+                            <p class="mb-1 form-control" type="text">{{address.address}}</p>
+                            <i id="{{address.id}}" class="bg-success text-white p-2 rounded fas fa-edit" style="cursor: pointer;" ></i>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="col-1 pl-1">
+                        <i id="deleteAddress" value="{{address.id}}" class="bg-danger text-white p-2 rounded fas fa-trash-alt" style="cursor: pointer;"></i>
+                    </div>
+                    <div class="col-1 pr-1">
+                        <i id="updateAddress" value="{{address.id}}" class="bg-primary text-white p-2 rounded fas fa-save" style="cursor: pointer;"></i>
+                    </div>-->
+                </div> 
+            </div>
+            
+
+            <p *ngIf="addresses.length == 0">لم تقم بإضافة أي عنوان بعد</p>
+            <button id="addAddress" class="form-control btn-success">إضافة عنوان جديد</button>
+            
+            <div id="newAddressBox">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button id="resetPass" class="update-data form-control bg-red" (click)="updateUserData()">تحديث بياناتي</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="popup text-center col-10 col-md-8 col-lg-5 m-auto" style="direction: rtl;" *ngIf="showWishlistAlert">
+    تم تحديث بياناتك بنجاح
+    <button (click)="changeshowWishlistAlert()" class="border-0">حسنا</button>
+</div>

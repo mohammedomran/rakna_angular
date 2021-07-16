@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="profile pt-5 pb-5 mt-5 mb-5">
+    <div class="container m-auto">
+        <div class="row justify-content-center text-right" style="direction: rtl;">
+            <div class="order2 col-12 col-lg-9">
+                <router-outlet></router-outlet>
+            </div>
+            <div class="order1 col-12 col-lg-3">
+                <div class="tabs border p-3">
+                    <!---------------------------------------->
+                    <div class="profilepic-list">
+                    <div class="dropdown d-xs-block d-sm-none">
+                        <div class="btn bg-red border-0" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-list"></i>
+                        </div>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="tabs-nav" (click)="onNavigate($event)">
+                                <ul class="text-center mt-2 side-nav">
+                                    <li class="myaccount bg-red" routerLink = "myaccount"><i class="fas fa-user ml-2"></i>حسابي</li>
+                                    <li class="edit" routerLink = "edit"><i class="fas fa-edit ml-2"></i>تعديل بياناتي</li>
+                                    <li class="orders" routerLink = "orders"><i class="fas fa-shopping-basket ml-2"></i>المشتريات</li>
+                                    <!--<li class="payment-methods" routerLink = "payment-methods"><i class="fas fa-credit-card ml-2"></i>وسائل الدفع</li>-->
+                                    <li class="send-suggestions" routerLink = "send-suggestions"><i class="fas fa-comment ml-2"></i>تقديم شكوي</li>
+                                </ul>
+                            </div>
+                        </div>
+                      </div>
+                      <h5 class="mb-0 d-xs-block d-sm-none">{{user.first_name + " " + user.last_name}}</h5>
+                      <!--------------------------------------->
+                    <div (mouseenter)="viewProfilePicInput()" (mouseleave)="hideProfilePicInput()" class="profile-pic" style="background-image: url({{user.profile_pic}});">
+                        <div class="change-pic d-none d-sm-block">
+                            <div style="cursor: pointer;" style="z-index: 1;">
+                                <i class="fas fa-edit text-white m-2"></i>
+                                <span class="text-white">تغيير الصورة</span>
+                            </div>
+                            <input (change)="image($event)" id="profilePicture" (change)="previewImage()" type="file" class="profile-pic-change">
+                        </div>
+                        
+                        <button class="mobile-none changeBtn border-0 btn-primary rounded pl-1 pr-1" (click)="uploadPic()">حفظ التغيير</button>
+                        
+                    </div>
+                </div>
+                    <div class="tabs-nav d-none d-sm-block" (click)="onNavigate($event)">
+                        <ul class="text-center mt-2 side-nav">
+                            <li class="myaccount bg-red" routerLink = "myaccount"><i class="fas fa-user ml-2"></i>حسابي</li>
+                            <li class="edit" routerLink = "edit"><i class="fas fa-edit ml-2"></i>تعديل بياناتي</li>
+                            <li class="orders" routerLink = "orders"><i class="fas fa-shopping-basket ml-2"></i>المشتريات</li>
+                            <!--<li class="payment-methods" routerLink = "payment-methods"><i class="fas fa-credit-card ml-2"></i>وسائل الدفع</li>-->
+                            <li class="send-suggestions" routerLink = "send-suggestions"><i class="fas fa-comment ml-2"></i>تقديم شكوي</li>
+                        </ul>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

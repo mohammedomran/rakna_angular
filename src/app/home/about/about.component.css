@@ -1,0 +1,103 @@
+
+.bg-black {
+    background-color: #292828;
+    color: #fff;
+}
+.bg-black a {
+    color: #fff;
+}
+
+.bg-red, .bg-red a {
+    background-color:  #ff3838;
+    color: #fff;
+}
+.red {
+    color: #ff3838;
+}
+.orange {
+    color: #83e313;
+}
+.gray {
+    color: #6f6464;;
+}
+.bg-yellow {
+    background-color: #ffea00;
+}
+.bg-gray, .bg-gray a{
+    background-color: #e2e2e2;
+    color: #2f2f30;
+}
+
+
+.bg-white {
+    background-color: white;
+    color: #292828;
+}
+.bg-white a {
+    color: #292828;
+}
+span {
+    color: black;
+}
+
+.color-black {
+    color: #292929;
+}
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.country h5 {
+    font-size: 17px;
+}
+
+.header {
+    background-image: url('https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/images/bg5.png');
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header h1 {
+    margin: 0;
+    font-size: 80px;
+    text-align: center;
+}
+
+.sec-header h5 {
+    color: #ff3838;
+    font-size: 31px;
+}
+.sec-header p {
+    line-height: 25px;
+    letter-spacing: 1.2px;
+    margin-bottom: 0;
+}
+
+.dates p {
+    line-height: 25px;
+    letter-spacing: 1.2px;
+    margin-bottom: 0;
+}
+
+.dates .row {
+    margin-bottom: 40px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .order1 {
+        order: 1;
+    }
+    .order2 {
+        order: 2;
+    }
+}

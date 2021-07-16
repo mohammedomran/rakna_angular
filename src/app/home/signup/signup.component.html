@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="signup mt-10 pt-5">
+    
+    <h3 class="text-center">أنشيء حسابك الآن  </h3>
+    <div class="row justify-content-center align-items-center ml-auto mr-auto mb-5">
+        <div class="col-12 col-md-8 col-lg-4">
+                <div class="form-group">
+                    <input id="first_name" type="text" class=" form-control bg-gray small-br" placeholder="الاسم الأول" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <input id="last_name" type="text" class=" form-control bg-gray small-br" placeholder="الاسم الأخير" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <input id="mobile" type="number" class=" form-control bg-gray small-br" placeholder="رقم الموبايل" aria-describedby="emailHelp">
+                </div>
+
+                <div class="form-group">
+                    <input id="email" type="email" class=" form-control bg-gray small-br" placeholder="البريد الإلكتروني" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <input id="password" type="password" class=" form-control bg-gray small-br" placeholder="الرقم السري">
+                </div>
+                
+                <button class="btn bg-red w-100 border-0 small-br" (click)="signupUser()">إنشاء حسابي الآن</button>
+
+                <a class="d-block mt-2" routerLink="/login">لديك حساب بالفعل ؟ تسجيل دخول</a>
+        </div>
+        <div class="col-12 col-md-8 col-lg-4 d-none d-sm-block">
+            <img src="https://aldorahouse.s3-eu-west-1.amazonaws.com/assets/gifs/signup.gif">
+        </div>
+    </div>
+</div>
+
+
+<div class="popup text-center col-10 col-md-8 col-lg-5 m-auto" style="direction: rtl;" *ngIf="showAlert">
+    <p class="alert" style="direction: rtl;">{{alertMsg}}</p>
+    <button (click)="changeshowAlert()" class="border-0">حسنا</button>
+</div>
+<app-footer></app-footer>

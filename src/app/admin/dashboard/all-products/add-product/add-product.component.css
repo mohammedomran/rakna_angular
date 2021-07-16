@@ -1,0 +1,57 @@
+.add p {
+    margin-bottom: 8px;
+}
+
+.bg-red, .bg-red a {
+    background-color:  #ff3838;
+    color: #fff;
+}
+
+.popup {
+    padding: 40px 50px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: none;
+}
+.big {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 2;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.opacity {
+    opacity: 0.5;
+}
+.check {
+    display: none;
+}
+.notificationBtn {
+    display: none;
+}
+
+
+.back {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+.color i {
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px -4px #383636;
+    margin: 0 0 6px 6px;
+    cursor: pointer;
+    font-size: 30px;
+    border: 0.5px solid #eee;
+}

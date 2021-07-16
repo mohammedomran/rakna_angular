@@ -1,0 +1,10 @@
+.bg-red, .bg-red a {
+    background-color:  #ff3838;
+    color: #fff;
+}
+
+
+.back {
+    cursor: pointer;
+    font-size: 18px;
+}

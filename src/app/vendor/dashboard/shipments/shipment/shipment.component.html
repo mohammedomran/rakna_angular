@@ -1,0 +1,46 @@
+<div class="w-100 top-nav p-3 bg-dark text-white mb-5">
+    <div class="container">
+        <div *ngIf="vendorData != null" class=" row align-items-center justify-content-between">
+        
+        <h5 class="mb-0 mr-2">{{vendorData.first_name + " " + vendorData.last_name}}</h5>
+        <p class="mb-0 ml-3" style="cursor: pointer;" (click)="logout()">تسجيل خروج<i class="ml-1 fas fa-sign-out-alt"></i></p>
+
+        </div>
+    </div>
+</div>
+  
+<div class="container m-auto pt-5">
+    <div class="row" style="direction: ltr;">
+        <div class="col-12">
+            <div style="cursor: pointer;" class="mb-3 back justify-content-end w-100 row align-items-center text-primary" routerLink="../">
+                <p class="m-0 mr-2">رجوع</p>
+                <i class="fas fa-angle-right ml-0"></i>
+            </div>
+        </div>
+    </div>
+    <div class="row text-right" style="direction: rtl;">
+        <div class="col-12 col-lg-8 m-auto">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h5 class="text-center mb-3">فواتير الشحنة #{{shipment.id}}</h5>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col-2">#</th>
+                    <th scope="col-3">قيمة الفاتورة</th>
+                    <th scope="col-3">تاريخ الدفع</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bill of shipment.bills" style="cursor: pointer;">
+                      <th scope="row">{{bill.id}}</th>
+                      <td>{{bill.price}} ج</td>
+                      <td>{{bill.created_at}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

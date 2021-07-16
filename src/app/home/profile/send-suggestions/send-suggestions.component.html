@@ -1,0 +1,25 @@
+<div class="edit-section text-right" style="direction: rtl;">
+    <div class="row">
+        <div class="col">
+            <h4>تقديم شكوي</h4>
+            <hr>
+        </div>
+    </div>
+    
+    <div class="edit-section text-right" style="direction: rtl;">
+        <div class="row mb-3 mt-3">
+            <div class="col">
+                <i class="fas fa-shopping-basket ml-2"></i><h5 class="d-inline-block">قم باختيار الطلب المتعلق بالمشكلة</h5>
+                <select class="form-control" id="order_id">
+                    <option selected>قم باختيار الطلب</option>
+                    <option *ngFor="let order of orders" value="{{order.id}}">تاريخ الطلب - {{order.created_at}}</option>
+                </select>
+            
+                <h5 class="mt-3">محتوي الشكوي</h5>
+                <textarea id="complaint-content" class="form-control" style="height: 150px;"></textarea>
+            
+                <button class="mt-3 bg-red form-control" style="height: 50px;" (click)="storeComplaint()">إرسال الشكوي</button>
+            </div>
+        </div>
+    </div>
+</div>

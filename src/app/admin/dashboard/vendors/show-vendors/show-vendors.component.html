@@ -1,0 +1,65 @@
+<div class="col-11 m-auto pt-5 pb-5">
+    <div class="row">
+        
+    <div class="col-12">
+        <div class="mb-3 back justify-content-end w-100 row align-items-center text-primary" routerLink="../">
+          <p class="m-0">رجوع</p>
+          <i class="fas fa-angle-right ml-2"></i>
+        </div>
+    </div>
+    
+    <div class="col-12 text-right" style="direction: rtl;">
+        <ul class="list-group list-group-flush">
+          
+            <li class="list-group-item">
+                <ul class="row justify-content-between">
+                  <li class="col-1">الصورة</li>
+                  <li class="col-2">اسم التاجر</li>
+                  <li class="col-2">الموبايل</li>
+                  <li class="col-3">الإيميل</li>
+                  <li class="col-2">تاريخ الاشتراك</li>
+                  <li class="col-2"> </li>
+                </ul>
+              </li>
+
+              <li class="list-group-item" *ngFor="let vendor of vendors">
+                <ul class="row justify-content-between align-items-center">
+                  <li class="col-1"><div class="profile-pic" style="background-image: url({{vendor.profile_pic}});"></div></li>
+                  <li class="col-2">{{ vendor.first_name + " " + vendor.last_name }}</li>
+                  <li class="col-2">{{ vendor.mobile }}</li>
+                  <li class="col-3">{{ vendor.email}}</li>
+                  <li class="col-2">{{ vendor.created_at.slice(0,10) }}</li>
+                  <li class="col-2">
+                    <button class="btn-danger border-0 p-1 ml-1 rounded" (click)="delete(vendor.id)">حذف</button>
+                  </li>
+                </ul>
+              </li>
+              
+        </ul>
+    </div>
+    </div>
+
+    
+  <!--<div class="col-12">
+    <div class="row justify-content-center" style="direction: ltr;"> 
+      <nav class="navigation" aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link">1</a></li>
+            <li class="page-item"><a class="page-link">2</a></li>
+            <li class="page-item"><a class="page-link">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>-->
+
+</div>

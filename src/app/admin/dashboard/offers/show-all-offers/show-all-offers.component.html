@@ -1,0 +1,71 @@
+<div class="col-11 m-auto text-right pt-5 pb-5" style="direction: rtl;">
+    <div class="row" style="direction: ltr;">
+        <div class="col-12">
+            <div class="mb-3 back justify-content-end w-100 row align-items-center text-primary" routerLink="../">
+                <p class="m-0">رجوع</p>
+                <i class="fas fa-angle-right ml-0"></i>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            
+            <div class="products-list row text-right">
+                <div class="col-12">
+                  <ul class="list-group list-group-flush">
+                    
+                    <li class="list-group-item">
+                      <ul class="row justify-content-between">
+                          <li class="col-1">ID</li>
+                          <li class="col-1">الصورة</li>
+                          <li class="col-2">الاسم</li>
+                          <li class="col-2">السعر الأساسي</li>
+                          <li class="col-2">الخصم</li>
+                          <li class="col-2">السعر الجديد</li>
+                          <li class="col-2">تاريخ الإضافة</li>
+                      </ul>
+                    </li>
+
+                    <li class="list-group-item" *ngFor="let product of products">
+                      <ul class="row justify-content-between align-items-center">
+                          <li class="col-1">{{product.id}}</li>
+                          <li class="col-1"><img src="{{product.main_image}}" height="50px"></li>
+                          <li class="col-2">{{product.name}}</li>
+                          <li class="col-2">{{product.price}}</li>
+                          <li class="col-2" *ngIf="product.price_discount != 0">{{product.price_discount}} ج</li>
+                          <li class="col-2" *ngIf="product.percentage_discount != 0">{{product.percentage_discount}} %</li>
+                          <li class="col-2" *ngIf="product.price_discount != 0">{{product.price - product.price_discount}} ج</li>
+                          <li class="col-2" *ngIf="product.percentage_discount != 0">{{product.price - product.price*product.percentage_discount/100}} ج</li>
+                          <li class="col-2">{{product.created_at}}</li>
+                      </ul>
+                    </li>
+            
+                  </ul>
+                </div>
+
+                <div class="col-12">
+                    <div class="row justify-content-center" style="direction: ltr;"> 
+                      <nav class="navigation" aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link">1</a></li>
+                            <li class="page-item"><a class="page-link">2</a></li>
+                            <li class="page-item"><a class="page-link">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+
+        </div>
+    </div>
+    
+</div>
